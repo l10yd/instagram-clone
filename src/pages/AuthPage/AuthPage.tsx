@@ -10,7 +10,7 @@ const AuthPage = () => {
     <Flex minH={"100vh"} justifyContent={"center"} alignItems={"center"} px={4}>
       <Container maxW={"container.md"} padding={0}>
         <Flex justifyContent={"center"} alignItems={"center"} gap={"10"}>
-          {/* левая сторона */}
+          {/* левая сторона, base:none скрывает на маленьких экранах */}
           <Box display={{ base: "none", md: "block" }}>
             <Image src="/auth.png" h={650} alt="Phone img" />
           </Box>
