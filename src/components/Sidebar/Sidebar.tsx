@@ -88,7 +88,7 @@ const Sidebar = () => {
               >
                 <Link
                   display={"flex"}
-                  to={item.link || null}
+                  to={item.link}
                   as={RouterLink}
                   alignItems={"center"}
                   gap={4}

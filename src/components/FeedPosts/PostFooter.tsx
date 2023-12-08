@@ -15,7 +15,7 @@ import {
 } from "../../assets/constants";
 import { FeedPostType } from "./FeedPost";
 
-const PostFooter: React.FC<FeedPostType> = ({ username }) => {
+const PostFooter: React.FC<FeedPostType> = ({ username, isProfilePage }) => {
   const [liked, setLiked] = useState(false);
   const [likes, setLikes] = useState(1000);
 
@@ -29,7 +29,7 @@ const PostFooter: React.FC<FeedPostType> = ({ username }) => {
   };
 
   return (
-    <Box marginBottom={10}>
+    <Box marginBottom={10} marginTop={"auto"}>
       <Flex
         alignItems={"center"}
         gap={4}
@@ -48,16 +48,22 @@ const PostFooter: React.FC<FeedPostType> = ({ username }) => {
       <Text fontWeight={600} fontSize={"sm"}>
         {likes} likes
       </Text>
-      <Text fontWeight={700} fontSize={"sm"}>
-        {username}{" "}
-        <Text fontWeight={400} as="span">
-          this is my comment
-        </Text>
-      </Text>
+      {/* эта часть не отображается при открытии модального окна */}
+      {!isProfilePage && (
+        <>
+          <Text fontWeight={700} fontSize={"sm"}>
+            {username}{" "}
+            <Text fontWeight={400} as="span">
+              this is my comment
+            </Text>
+          </Text>
 
-      <Text fontSize="sm" color={"gray"}>
-        View all 999 comments
-      </Text>
+          <Text fontSize="sm" color={"gray"}>
+            View all 999 comments
+          </Text>
+        </>
+      )}
+
       <Flex
         alignItems={"center"}
         gap={2}

@@ -8,6 +8,7 @@ export type FeedPostType = {
   img?: string;
   username?: string;
   avatar?: string;
+  isProfilePage?: boolean;
 };
 
 const FeedPost: React.FC<FeedPostType> = ({ img, username, avatar }) => {
