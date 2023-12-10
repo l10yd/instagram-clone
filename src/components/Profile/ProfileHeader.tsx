@@ -25,6 +25,7 @@ const ProfileHeader = () => {
       >
         <Avatar name="dudedude" src="/profilepic.png" />
       </AvatarGroup>
+
       <VStack alignItems={"start"} gap={2} marginX={"auto"} flex={1}>
         <Flex
           gap={4}

@@ -1,4 +1,3 @@
-import React from "react";
 import { Avatar, Box, Flex, Link, Tooltip } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
 import { AiFillHome } from "react-icons/ai";
