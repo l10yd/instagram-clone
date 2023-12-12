@@ -7,6 +7,10 @@ const SuggestedHeader = () => {
   const { handleLogout, isLoggingOut } = useLogout();
   const authUser = useAuthStore((state) => state.user);
 
+  if (!authUser) {
+    return null;
+  }
+
   //заголовок для рекомендуемых для фолловинга
   // аватар авторизованного юзера, его имя, кнопка логаут
 
