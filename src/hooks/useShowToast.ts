@@ -1,4 +1,5 @@
 import { useToast } from "@chakra-ui/react";
+import { useCallback } from "react";
 
 export type AuthError = {
   code: string;
@@ -15,22 +16,27 @@ export type ToastType = {
 const useShowToast = () => {
   const toast = useToast();
 
-  const showToast = (
-    title: string,
-    description: string | AuthError,
-    status: ToastType["status"]
-  ) => {
-    const toastConfig = {
-      title,
-      description:
-        typeof description === "string" ? description : description.message,
-      status,
-      duration: 3000,
-      isClosable: true,
-    };
+  //чтобы бесконечно не перерисовывалось, кэшируем отдельную функцию
+  //через колбэк
+  const showToast = useCallback(
+    (
+      title: string,
+      description: string | AuthError,
+      status: ToastType["status"]
+    ) => {
+      const toastConfig = {
+        title,
+        description:
+          typeof description === "string" ? description : description.message,
+        status,
+        duration: 3000,
+        isClosable: true,
+      };
 
-    toast(toastConfig);
-  };
+      toast(toastConfig);
+    },
+    [toast]
+  );
 
   return showToast;
 };
